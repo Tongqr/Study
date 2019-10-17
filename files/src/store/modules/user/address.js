@@ -1,0 +1,73 @@
+import {addAddressData,getAddressListData,getAddressInfoData,modAddressData,delAddressData}from '../../../api/user/address.js'
+export default{
+    namespaced:true,
+    state:{
+        addressList:[]
+    },
+    mutations:{
+        //添加收货地址
+        addAddress(state,payload){
+            addAddressData(payload).then(res=>{
+                console.log(res)
+                if(payload&&payload.success){
+                    payload.success(res)
+                }
+            })
+        },
+        //获取收货地址列表
+        getAddressList(state,payload){
+            getAddressListData(payload.uid).then(res=>{
+                // console.log(res)
+                if(res.code==200){
+                    state.addressList=res.data
+                }
+            })
+
+        },
+        //获取收货地址详情
+        getAddressInfo(state,payload){
+            getAddressInfoData(payload.uid,payload.aid).then(res=>{
+                if(res.code==200){
+                    if(payload&&payload.success){
+                        payload.success(res.data)
+                    }
+                }
+                // console.log(res)
+
+            })
+        },
+        //修改收货地址
+        modAddress(state,payload){
+            modAddressData(payload).then(res=>{
+                if(payload&&payload.success){
+                    payload.success(res)
+                }
+            })
+        },
+        //删除收货地址
+        delAddress(state,payload){
+            delAddressData(payload.uid,payload.aid).then(res=>{
+                if(payload&&payload.success){
+                    payload.success(res)
+                }
+            })
+        }
+    },
+    actions:{
+        addAddress(conText,payload){
+            conText.commit("addAddress",payload)
+        },
+        getAddressList(conText,payload){
+            conText.commit("getAddressList",payload)
+        },
+        getAddressInfo(conText,payload){
+            conText.commit("getAddressInfo",payload)
+        },
+        modAddress(conText,payload){
+            conText.commit("modAddress",payload)
+        },
+        delAddress(conText,payload){
+            conText.commit("delAddress",payload)
+        },
+    },
+}

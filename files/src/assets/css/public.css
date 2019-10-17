@@ -1,0 +1,28 @@
+html,body{
+    font-family: Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin:0;
+    padding:0;
+    background-color:#EFEFEF;
+}
+ul,li{margin:0;padding:0;list-style: none}
+input,button{border:0 none;border-radius: 0px;outline:none;}
+.loading{
+    background:url("../images/common/load.gif") center;
+    background-size:100%;
+    width:0.6rem;
+    height:0.6rem;
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    z-index:100;
+    display: none;
+}
+.no-data{
+    width:100%;
+    text-align: center;
+    font-size:0.32rem;
+    margin-top:1rem;
+}
