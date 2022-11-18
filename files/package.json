@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-service": "^5.0.8",
     "mockjs": "^1.0.1-beta3",
     "vue-template-compiler": "^2.6.10",
     "webpack-transform-modules-plugin": "^0.4.4"
